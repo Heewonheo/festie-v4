@@ -20,7 +20,10 @@
 }
 html,body{height:100%;margin:0}
 [hidden]{display:none!important}
-body{background:var(--wall);color:var(--ink);font-family:var(--f-ko);overflow:hidden}
+body{background:linear-gradient(to bottom,#F3D9FF 0 50%,#E8A8FF 50% 100%);color:var(--ink);font-family:var(--f-ko);overflow:hidden}
+/* wider than 16:9: side bands continue wall, desk line, desk and desk front at the scene's own heights */
+@media (min-aspect-ratio:16/9){body{background:linear-gradient(to bottom,#F3D9FF 0 calc(65.33% - .9px),#0A0A0A calc(65.33% - .9px) calc(65.33% + .9px),#FFF7B8 calc(65.33% + .9px) calc(94% - .9px),#0A0A0A calc(94% - .9px) calc(94% + .9px),#E8A8FF calc(94% + .9px) 100%)}}
+body::after{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.9;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .04 0 0 0 0 .03 0 0 0 0 .06 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
 .stage{height:100%;display:flex;align-items:center;justify-content:center}
 .scene{position:relative;width:min(100%,calc(100dvh * 16 / 9));aspect-ratio:16/9;max-width:100%;container-type:inline-size;user-select:none;-webkit-user-select:none}
 .scene>svg{display:block;width:100%;height:100%}
@@ -81,10 +84,10 @@ svg text{stroke:none}
 .bar .sq{width:11px;height:11px;border-radius:2px;background:var(--wall)}
 .bar .x{width:28px;height:28px;border-radius:6px;border:0;background:var(--violet);color:var(--ink);font:700 16px/1 var(--f-en);cursor:pointer;display:grid;place-items:center}
 .bar .x:focus-visible{outline:3px solid var(--lemon);outline-offset:2px}
-.body{padding:26px 28px 28px;overflow:auto;display:flex;flex-direction:column;gap:18px}
+.body{padding:34px 40px 36px;overflow:auto;display:flex;flex-direction:column;gap:18px}
 .eyebrow{align-self:flex-start;margin:0;padding:6px 10px 4px;border:2px solid var(--ink);border-radius:999px;font:700 12px/1 var(--f-en);letter-spacing:.16em}
-.body h2{margin:0;font:800 clamp(24px,4.2vw,32px)/1.2 var(--f-ko);letter-spacing:-.03em;text-wrap:balance}
-.lead{margin:-6px 0 0;font:400 16px/1.6 var(--f-ko);color:#3a3340}
+.body h2{margin:0;font:800 clamp(24px,3.4vw,34px)/1.22 var(--f-ko);letter-spacing:-.03em;text-wrap:balance}
+.lead{margin:-4px 0 0;font:400 16.5px/1.65 var(--f-ko);color:#3a3340}
 .tabs{display:flex;flex-wrap:wrap;gap:6px}
 .tabs button{border:2px solid var(--ink);background:var(--paper);border-radius:999px;padding:8px 13px 7px;font:700 13.5px/1 var(--f-ko);cursor:pointer;color:var(--ink)}
 .tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
@@ -102,10 +105,10 @@ svg text{stroke:none}
 .cta.ghost:hover{background:var(--wall)}
 .cta:focus-visible{outline:3px solid var(--violet-ink);outline-offset:3px}
 /* feature popup: line-drawn phone + text */
-.feat{display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:start}
+.feat{display:grid;grid-template-columns:auto minmax(0,1fr);gap:52px;align-items:center}
 .feat-text{display:flex;flex-direction:column;gap:18px;min-width:0}
 .pm-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;position:sticky;top:0}
-.pm{position:relative;width:min(218px,calc((100dvh - 170px) * .43));padding:9px;border:1.6px solid var(--ink);border-radius:38px;background:var(--paper)}
+.pm{box-sizing:border-box;position:relative;width:min(236px,calc((100dvh - 210px) * .43));padding:9px;border:1.6px solid var(--ink);border-radius:38px;background:var(--paper)}
 .pm::before,.pm::after{content:"";position:absolute;width:5px;border:1.4px solid var(--ink);background:var(--paper);border-radius:3px}
 .pm::before{right:-6.5px;top:22%;height:13%;border-left:0;border-radius:0 3px 3px 0}
 .pm::after{left:-6.5px;top:17%;height:20%;border-right:0;border-radius:3px 0 0 3px;box-shadow:0 0 0 0 transparent}
@@ -126,14 +129,14 @@ svg text{stroke:none}
 .pt[aria-selected="true"] .arr{opacity:1}
 .pt b{display:block;font:700 15px/1.4 var(--f-ko);margin-bottom:2px}
 .pt span.d{display:block;font:400 14px/1.55 var(--f-ko);color:#3a3340}
-.win.feature{width:min(820px,100%)}
+.win.feature,.win.live-win{width:min(860px,100%)}
 @media (max-width:700px){
   .feat{grid-template-columns:1fr;gap:20px}
   .pm-wrap{position:static}
-  .pm{width:min(170px,50vw)}
+  .pm{width:min(190px,52vw)}
 }
 /* live prototype phone */
-.live{display:grid;grid-template-columns:auto minmax(0,1fr);gap:48px;align-items:center}
+.live{display:grid;grid-template-columns:auto minmax(0,1fr);gap:52px;align-items:center}
 .lp{--s:.8;box-sizing:border-box;width:calc(390px * var(--s) + 20px);padding:9px;border:1.6px solid var(--ink);border-radius:calc(64px * var(--s) + 9px);background:var(--paper);position:relative}
 .lp::before,.lp::after{content:"";position:absolute;width:5px;border:1.4px solid var(--ink);background:var(--paper)}
 .lp::before{right:-6.5px;top:22%;height:13%;border-left:0;border-radius:0 3px 3px 0}
@@ -146,7 +149,7 @@ svg text{stroke:none}
 .live-text .tip{margin:0;display:flex;gap:8px;align-items:center;font:500 14.5px/1.5 var(--f-ko);padding:10px 14px;border-radius:10px;background:var(--wall);align-self:flex-start}
 .live-text .tip svg{width:14px;height:14px;fill:var(--ink);flex:none}
 .qr img{width:100%;height:100%;display:block;image-rendering:pixelated}
-.win.live-win{width:auto;max-width:100%}
+
 @media (max-width:760px){.live{grid-template-columns:1fr;gap:24px}.lp{justify-self:center}}
 /* try popup */
 .try{display:grid;grid-template-columns:auto minmax(0,1fr);gap:44px;align-items:center}
@@ -454,7 +457,7 @@ svg text{stroke:none}
 </g>
 
 <!-- grain -->
-<rect x="0" y="0" width="1600" height="900" filter="url(#grain)" fill="#FFFFFF" stroke="none" pointer-events="none" opacity=".9"/>
+
 </svg>
 
 <div class="hud">
@@ -590,8 +593,9 @@ function setTab(k){
   showShot(t.shot,t.shotLabel);
 }
 function liveScale(){
-  const avail=Math.min(window.innerHeight-170,(window.innerWidth<760?window.innerWidth-80:window.innerWidth*.55));
-  return Math.max(.45,Math.min(.95,(window.innerWidth<760?avail/390:avail/(844+30))));
+  /* same frame width as the feature phones (236px), smaller only on short screens */
+  const byH=(window.innerHeight-230)/(844+30);
+  return Math.max(.4,Math.min((236-20)/390,byH));
 }
 let bgTimer=null;
 function syncBar(){
