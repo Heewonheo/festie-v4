@@ -1,0 +1,80 @@
+/* noto-sans-kr-400 (Hangul + text on this site) */
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(files/noto-sans-kr-400.woff2) format('woff2');
+}
+
+/* noto-sans-kr-500 (Hangul + text on this site) */
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(files/noto-sans-kr-500.woff2) format('woff2');
+}
+
+/* noto-sans-kr-700 (Hangul + text on this site) */
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(files/noto-sans-kr-700.woff2) format('woff2');
+}
+
+/* noto-sans-kr-800 (Hangul + text on this site) */
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url(files/noto-sans-kr-800.woff2) format('woff2');
+}
+
+/* josefin-sans-latin-600-normal */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(files/josefin-sans-latin-600-normal.woff2) format('woff2');
+}
+
+/* josefin-sans-latin-700-normal */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(files/josefin-sans-latin-700-normal.woff2) format('woff2');
+}
+
+/* caveat-latin-500-normal */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(files/caveat-latin-500-normal.woff2) format('woff2');
+}
+
+/* caveat-latin-700-normal */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(files/caveat-latin-700-normal.woff2) format('woff2');
+}
+
+/* silkscreen-latin-400-normal */
+@font-face {
+  font-family: 'Silkscreen';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(files/silkscreen-latin-400-normal.woff2) format('woff2');
+}
